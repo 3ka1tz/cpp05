@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 
+class Form;
+
 class Bureaucrat {
 public:
     Bureaucrat(const std::string& name, int grade);
@@ -27,6 +29,8 @@ public:
     public:
         const char* what() const throw();
     };
+
+    void signForm(Form& form);
 
 private:
     const std::string _name;
