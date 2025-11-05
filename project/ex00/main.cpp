@@ -5,8 +5,8 @@ int main() {
     try {
         Bureaucrat alice("Alice", 42);
         std::cout << alice << std::endl;
-    } catch (std::exception& exception) {
-        std::cout << exception.what() << std::endl;
+    } catch (std::exception& e) {
+        std::cout << e.what() << std::endl;
     }
 
     std::cout << std::endl;
@@ -15,8 +15,8 @@ int main() {
     try {
         Bureaucrat bob("Bob", 0);
         std::cout << bob << std::endl;
-    } catch (std::exception& exception) {
-        std::cout << exception.what() << std::endl;
+    } catch (std::exception& e) {
+        std::cout << e.what() << std::endl;
     }
     
     std::cout << std::endl;
@@ -25,8 +25,8 @@ int main() {
     try {
         Bureaucrat charlie("Charlie", 151);
         std::cout << charlie << std::endl;
-    } catch (std::exception& exception) {
-        std::cout << exception.what() << std::endl;
+    } catch (std::exception& e) {
+        std::cout << e.what() << std::endl;
     }
 
     std::cout << std::endl;
@@ -36,8 +36,8 @@ int main() {
         Bureaucrat diana("Diana", 1);
         std::cout << diana << std::endl;
         diana.incrementGrade();
-    } catch (std::exception& exception) {
-        std::cout << exception.what() << std::endl;
+    } catch (std::exception& e) {
+        std::cout << e.what() << std::endl;
     }
 
     std::cout << std::endl;
@@ -47,8 +47,8 @@ int main() {
         Bureaucrat ed("Ed", 150);
         std::cout << ed << std::endl;
         ed.decrementGrade();
-    } catch (std::exception& exception) {
-        std::cout << exception.what() << std::endl;
+    } catch (std::exception& e) {
+        std::cout << e.what() << std::endl;
     }
 
     return 0;
