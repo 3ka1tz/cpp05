@@ -16,7 +16,9 @@ You will provide getters for both attributes: getName() and getGrade(). You must
 The thrown exceptions must be catchable using try and catch blocks.
 
 You must implement an overload of the insertion («) operator to print output in the following format (without the angle brackets):
+
 &lt;name&gt;, bureaucrat grade &lt;grade&gt;.
+
 As usual, submit some tests to prove that everything works as expected.
 
 ## [Exercise 01: Form up, maggots!](https://github.com/3ka1tz/cpp05/tree/main/project/ex01)
