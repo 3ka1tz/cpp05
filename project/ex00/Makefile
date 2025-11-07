@@ -3,8 +3,7 @@ NAME = cpp05_ex00
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-SRC = main.cpp \
-      Bureaucrat.cpp
+SRC = main.cpp Bureaucrat.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

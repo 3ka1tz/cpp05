@@ -1,52 +1,78 @@
 #include "Bureaucrat.hpp"
 
 int main() {
-    std::cout << "Test 1: Grade 42" << std::endl;
+    std::cout << "\033[32mTest 0: Grade 42\033[0m" << std::endl;
     try {
-        Bureaucrat alice("Alice", 42);
-        std::cout << alice << std::endl;
+        Bureaucrat amaia("Amaia", 42);
+        std::cout << amaia << std::endl;
     } catch (std::exception& e) {
         std::cout << e.what() << std::endl;
     }
 
     std::cout << std::endl;
 
-    std::cout << "Test 2: Grade 0" << std::endl;
+    std::cout << "\033[32mTest 1: Increment Grade 42\033[0m" << std::endl;
     try {
-        Bureaucrat bob("Bob", 0);
-        std::cout << bob << std::endl;
-    } catch (std::exception& e) {
-        std::cout << e.what() << std::endl;
-    }
-    
-    std::cout << std::endl;
-
-    std::cout << "Test 3: Grade 151" << std::endl;
-    try {
-        Bureaucrat charlie("Charlie", 151);
-        std::cout << charlie << std::endl;
+        Bureaucrat amaia("Amaia", 42);
+        std::cout << amaia << std::endl;
+        amaia.incrementGrade();
+        std::cout << amaia << std::endl;
     } catch (std::exception& e) {
         std::cout << e.what() << std::endl;
     }
 
     std::cout << std::endl;
 
-    std::cout << "Test 4: Increment Grade 1" << std::endl;
+    std::cout << "\033[32mTest 2: Decrement Grade 42\033[0m" << std::endl;
     try {
-        Bureaucrat diana("Diana", 1);
-        std::cout << diana << std::endl;
-        diana.incrementGrade();
+        Bureaucrat amaia("Amaia", 42);
+        std::cout << amaia << std::endl;
+        amaia.decrementGrade();
+        std::cout << amaia << std::endl;
     } catch (std::exception& e) {
         std::cout << e.what() << std::endl;
     }
 
     std::cout << std::endl;
 
-    std::cout << "Test 5: Decrement Grade 150" << std::endl;
+    std::cout << "\033[31mTest 3: Grade 0\033[0m" << std::endl;
     try {
-        Bureaucrat ed("Ed", 150);
-        std::cout << ed << std::endl;
-        ed.decrementGrade();
+        Bureaucrat amaia("Amaia", 0);
+        std::cout << amaia << std::endl;
+    } catch (std::exception& e) {
+        std::cout << e.what() << std::endl;
+    }
+
+    std::cout << std::endl;
+
+    std::cout << "\033[31mTest 4: Grade 151\033[0m" << std::endl;
+    try {
+        Bureaucrat amaia("Amaia", 151);
+        std::cout << amaia << std::endl;
+    } catch (std::exception& e) {
+        std::cout << e.what() << std::endl;
+    }
+
+    std::cout << std::endl;
+
+    std::cout << "\033[31mTest 5: Increment Grade 1\033[0m" << std::endl;
+    try {
+        Bureaucrat amaia("Amaia", 1);
+        std::cout << amaia << std::endl;
+        amaia.incrementGrade();
+        std::cout << amaia << std::endl;
+    } catch (std::exception& e) {
+        std::cout << e.what() << std::endl;
+    }
+
+    std::cout << std::endl;
+
+    std::cout << "\033[31mTest 6: Decrement Grade 150\033[0m" << std::endl;
+    try {
+        Bureaucrat amaia("Amaia", 150);
+        std::cout << amaia << std::endl;
+        amaia.decrementGrade();
+        std::cout << amaia << std::endl;
     } catch (std::exception& e) {
         std::cout << e.what() << std::endl;
     }
