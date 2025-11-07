@@ -16,7 +16,7 @@ You will provide getters for both attributes: getName() and getGrade(). You must
 The thrown exceptions must be catchable using try and catch blocks.
 
 You must implement an overload of the insertion («) operator to print output in the following format (without the angle brackets):
-<name>, bureaucrat grade <grade>.
+&lt;name&gt;, bureaucrat grade &lt;grade&gt;.
 As usual, submit some tests to prove that everything works as expected.
 
 ## [Exercise 01: Form up, maggots!](https://github.com/3ka1tz/cpp05/tree/main/project/ex01)
@@ -37,7 +37,7 @@ Also, add a `beSigned()` member function to the Form that takes a Bureaucrat as 
 
 Then, modify the `signForm()` member function in the Bureaucrat class. This function must call `Form::beSigned()` to attempt to sign the form. If the form is signed successfully, it will print something like:
 
-&lt;bureaucrat&gt; signed &lt;form&gt;
+&lt;bureaucrat&gt; signed &lt;form&gt;.
 
 Otherwise, it will print something like:
 
