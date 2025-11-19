@@ -2,20 +2,21 @@
 #define FORM_HPP
 
 #include <exception>
-#include <iostream>
+#include <ostream>
 #include <string>
 
 class Bureaucrat;
 
 class Form {
 public:
+    Form();
     Form(const std::string& name, int gradeToSign, int gradeToExecute);
     Form(const Form& other);
     Form& operator=(const Form& other);
     ~Form();
 
     const std::string& getName() const;
-    bool isSigned() const;
+    bool getIsSigned() const;
     int getGradeToSign() const;
     int getGradeToExecute() const;
 

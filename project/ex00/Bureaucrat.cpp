@@ -3,7 +3,7 @@
 #include <iostream>
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {
-    std::cout << "Bureaucrat " << _name << " has been constructed." << std::endl;
+    std::cout << "Bureaucrat " << _name << " constructed." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
@@ -14,23 +14,23 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
         throw GradeTooLowException();
     }
     _grade = grade;
-    std::cout << "Bureaucrat " << _name << " has been constructed." << std::endl;
+    std::cout << "Bureaucrat " << _name << " constructed." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) {
-    std::cout << "Bureaucrat " << _name << " has been copy constructed." << std::endl;
+    std::cout << "Bureaucrat " << _name << " copy constructed." << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
     if (this != &other) {
         _grade = other._grade;
     }
-    std::cout << "Bureaucrat " << _name << " has been assigned." << std::endl;
+    std::cout << "Bureaucrat " << _name << " assigned." << std::endl;
     return *this;
 }
 
 Bureaucrat::~Bureaucrat() {
-    std::cout << "Bureaucrat " << _name << " has been destructed." << std::endl;
+    std::cout << "Bureaucrat " << _name << " destructed." << std::endl;
 }
 
 const std::string& Bureaucrat::getName() const {
@@ -42,7 +42,7 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::incrementGrade() {
-    std::cout << "Attempting to increment Bureaucrat " << _name << "'s grade." << std::endl;
+    std::cout << "Incrementing Bureaucrat " << _name << "'s grade." << std::endl;
     if (_grade <= 1) {
         throw GradeTooHighException();
     }
@@ -50,7 +50,7 @@ void Bureaucrat::incrementGrade() {
 }
 
 void Bureaucrat::decrementGrade() {
-    std::cout << "Attempting to decrement Bureaucrat " << _name << "'s grade." << std::endl;
+    std::cout << "Decrementing Bureaucrat " << _name << "'s grade." << std::endl;
     if (_grade >= 150) {
         throw GradeTooLowException();
     }

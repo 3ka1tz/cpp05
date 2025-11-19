@@ -1,14 +1,16 @@
+#include <iostream>
+
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 int main() {
-    std::cout << "\033[32mTest 0: Successful Form Signing\033[0m" << std::endl;
+    std::cout << "\033[32mTest 0: Successful Signing\033[0m" << std::endl;
     try {
-        Bureaucrat amaia("Amaia", 1);
-        Form form("Test", 50, 150);
-        std::cout << amaia << std::endl;
+        Bureaucrat alice("Alice", 1);
+        std::cout << alice << std::endl;
+        Form form("FormA", 50, 150);
         std::cout << form << std::endl;
-        amaia.signForm(form);
+        alice.signForm(form);
         std::cout << form << std::endl;
     } catch (std::exception& e) {
         std::cout << e.what() << std::endl;
@@ -16,13 +18,13 @@ int main() {
 
     std::cout << std::endl;
 
-    std::cout << "\033[31mTest 1: Unsuccessful Form Signing\033[0m" << std::endl;
+    std::cout << "\033[31mTest 1: Unsuccessful Signing\033[0m" << std::endl;
     try {
-        Bureaucrat amaia("Amaia", 100);
-        Form form("Test", 50, 150);
-        std::cout << amaia << std::endl;
+        Bureaucrat bob("Bob", 100);
+        std::cout << bob << std::endl;
+        Form form("FormB", 0, 150);
         std::cout << form << std::endl;
-        amaia.signForm(form);
+        bob.signForm(form);
         std::cout << form << std::endl;
     } catch (std::exception& e) {
         std::cout << e.what() << std::endl;

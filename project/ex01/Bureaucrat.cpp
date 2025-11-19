@@ -1,30 +1,39 @@
 #include "Bureaucrat.hpp"
 
+#include <iostream>
+
 #include "Form.hpp"
+
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {
+    std::cout << "Bureaucrat " << _name << " constructed." << std::endl;
+}
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
     if (grade < 1) {
         throw GradeTooHighException();
     }
-    
     if (grade > 150) {
         throw GradeTooLowException();
     }
-
     _grade = grade;
-};
+    std::cout << "Bureaucrat " << _name << " constructed." << std::endl;
+}
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) {}
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) {
+    std::cout << "Bureaucrat " << _name << " copy constructed." << std::endl;
+}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
     if (this != &other) {
-        // _name is const
         _grade = other._grade;
     }
+    std::cout << "Bureaucrat " << _name << " assigned." << std::endl;
     return *this;
 }
 
-Bureaucrat::~Bureaucrat() {}
+Bureaucrat::~Bureaucrat() {
+    std::cout << "Bureaucrat " << _name << " destructed." << std::endl;
+}
 
 const std::string& Bureaucrat::getName() const {
     return _name;
@@ -35,22 +44,18 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::incrementGrade() {
-    std::cout << "Attempting to promote Bureaucrat " << _name << "'s grade." << std::endl;
-
+    std::cout << "Attempting to increment Bureaucrat " << _name << "'s grade." << std::endl;
     if (_grade <= 1) {
         throw GradeTooHighException();
     }
-
     _grade--;
 }
 
 void Bureaucrat::decrementGrade() {
-    std::cout << "Attempting to demote Bureaucrat " << _name << "'s grade." << std::endl;
-
-        if (_grade >= 150) {
+    std::cout << "Attempting to decrement Bureaucrat " << _name << "'s grade." << std::endl;
+    if (_grade >= 150) {
         throw GradeTooLowException();
     }
-
     _grade++;
 }
 

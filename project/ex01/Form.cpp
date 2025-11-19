@@ -1,26 +1,38 @@
 #include "Form.hpp"
 
+#include <iostream>
+
 #include "Bureaucrat.hpp"
 
-Form::Form(const std::string& name, int gradeToSign, int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {}
+Form::Form() : _name("Default"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150) {
+    std::cout << "Form " << _name << " constructed." << std::endl;
+}
 
-Form::Form(const Form& other) : _name(other._name), _isSigned(other._isSigned), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute) {}
+Form::Form(const std::string& name, int gradeToSign, int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
+    std::cout << "Form " << _name << " constructed." << std::endl;
+}
+
+Form::Form(const Form& other) : _name(other._name), _isSigned(other._isSigned), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute) {
+    std::cout << "Form " << _name << " copy constructed." << std::endl;
+}
 
 Form& Form::operator=(const Form& other) {
     if (this != &other) {
-        // _name, _gradeToSign and _gradeToExecute are const
         _isSigned = other._isSigned;
     }
+    std::cout << "Form " << _name << " assigned." << std::endl;
     return *this;
 }
 
-Form::~Form() {}
+Form::~Form() {
+    std::cout << "Form " << _name << " destructed." << std::endl;
+}
 
 const std::string& Form::getName() const {
     return _name;
 }
 
-bool Form::isSigned() const {
+bool Form::getIsSigned() const {
     return _isSigned;
 }
 
@@ -36,12 +48,11 @@ void Form::beSigned(const Bureaucrat& b) {
     if (b.getGrade() > _gradeToSign) {
         throw GradeTooLowException();
     }
-
     _isSigned = true;
 }
 
 const char* Form::GradeTooHighException::what() const throw() {
-    return "Grade too high!";
+    return "Grade too highaaaaaaaaaaaaaaa!";
 }
 
 const char* Form::GradeTooLowException::what() const throw() {
@@ -49,6 +60,6 @@ const char* Form::GradeTooLowException::what() const throw() {
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& f) {
-    os << f.getName() << " form: signed = " << std::boolalpha << f.isSigned() << ", sign grade = " << f.getGradeToSign() << ", exec grade = " << f.getGradeToExecute() << ".";
+    os << "Form " << f.getName() << " signed = " << std::boolalpha << f.getIsSigned() << ", sign grade = " << f.getGradeToSign() << ", exec grade = " << f.getGradeToExecute() << ".";
     return os;
 }
