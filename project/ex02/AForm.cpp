@@ -1,6 +1,10 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
 #include "Bureaucrat.hpp"
+
+Form::Form() : _name("Default"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150) {
+    std::cout << "Form default constructor called" << std::endl;
+}
 
 Form::Form(const std::string& name, int gradeToSign, int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {}
 
@@ -49,6 +53,6 @@ const char* Form::GradeTooLowException::what() const throw() {
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& f) {
-    os << f.getName() << " form: signed = " << std::boolalpha << f.isSigned() << ", sign grade = " << f.getGradeToSign() << ", exec grade = " << f.getGradeToExecute() << ".";
+    os << f.getName() << " Form: signed = " << std::boolalpha << f.isSigned() << ", sign grade = " << f.getGradeToSign() << ", exec grade = " << f.getGradeToExecute() << ".";
     return os;
 }

@@ -74,12 +74,12 @@ Implement and submit some tests to ensure everything works as expected.
 
 ## [Exercise 02: No, you need form 28B, not 28C...](https://github.com/3ka1tz/cpp05/tree/main/project/ex02)
 **Turn-in directory**: ex02/  
-**Files to turn in**: Makefile, main.cpp, Bureaucrat.[{h, hpp},cpp], + AForm.[{h, hpp},cpp], ShrubberyCreationForm.[{h, hpp},cpp], + RobotomyRequestForm.[{h, hpp},cpp], PresidentialPardonForm.[{h, hpp},cpp]  
+**Files to turn in**: Makefile, main.cpp, Bureaucrat.[{h, hpp},cpp], + Form.[{h, hpp},cpp], ShrubberyCreationForm.[{h, hpp},cpp], + RobotomyRequestForm.[{h, hpp},cpp], PresidentialPardonForm.[{h, hpp},cpp]  
 **Forbidden functions**: None
 
 Now that you have basic forms, it’s time to create a few more that actually do something.
 
-In all cases, the base class Form must be an abstract class and should therefore be renamed AForm. Keep in mind that the form’s attributes need to remain private and that they belong to the base class.
+In all cases, the base class Form must be an abstract class and should therefore be renamed Form. Keep in mind that the form’s attributes need to remain private and that they belong to the base class.
 
 Add the following concrete classes:
 - **ShrubberyCreationForm**: Required grades: sign 145, exec 137  
@@ -95,7 +95,7 @@ Now, add the `execute(const Bureaucrat& executor)` member function to the base f
 
 Whether you check the requirements in every concrete class or in the base class (and then call another function to execute the form) is up to you. However, one way is more elegant than the other.
 
-Lastly, add the `void executeForm(const AForm& form) const;` member function to the Bureaucrat class. It must attempt to execute the form. If successful, print something like:  
+Lastly, add the `void executeForm(const Form& form) const;` member function to the Bureaucrat class. It must attempt to execute the form. If successful, print something like:  
 `<bureaucrat> executed <form>.`
 
 If not, print an explicit error message.
@@ -109,7 +109,7 @@ Implement and submit some tests to ensure everything works as expected.
 
 Since filling out forms all day would be too cruel for our bureaucrats, interns exist to take on this tedious task. In this exercise, you must implement the **Intern** class. The intern has no name, no grade, and no unique characteristics. The only thing bureaucrats care about is that they do their job.
 
-However, the intern has one key ability: the `makeForm()` function. This function takes two strings as parameters: the first one represents the name of a form, and the second one represents the target of the form. It returns a pointer to a **AForm** object (corresponding to the form name passed as a parameter), with its target initialized to the second parameter.
+However, the intern has one key ability: the `makeForm()` function. This function takes two strings as parameters: the first one represents the name of a form, and the second one represents the target of the form. It returns a pointer to a **Form** object (corresponding to the form name passed as a parameter), with its target initialized to the second parameter.
 
 It should print something like:  
 `Intern creates <form>.`  
@@ -121,7 +121,7 @@ For example, the following code creates a **RobotomyRequestForm** targeted at "B
 ```
 {
 Intern someRandomIntern;
-AForm* rrf;
+Form* rrf;
 
 rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 }

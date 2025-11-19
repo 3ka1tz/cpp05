@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <exception>
 #include <iostream>
@@ -9,6 +9,7 @@ class Bureaucrat;
 
 class Form {
 public:
+    Form();
     Form(const std::string& name, int gradeToSign, int gradeToExecute);
     Form(const Form& other);
     Form& operator=(const Form& other);
@@ -29,7 +30,7 @@ public:
         const char* what() const throw();
     };
 
-private:
+protected:
     const std::string _name;
     bool _isSigned;
     const int _gradeToSign;
