@@ -3,6 +3,15 @@
 #include <iostream>
 
 int main() {
+    std::cout << "\033[32mTest 1: Default Constructor\033[0m\n";
+    try {
+        Bureaucrat b;
+        std::cout << b;
+    } catch (const std::exception& e) {
+        std::cout << e.what();
+    }
+
+/*
     std::cout << "\033[32mTest 0: Default constructor\033[0m" << std::endl;
     try {
         Bureaucrat x;
@@ -86,6 +95,6 @@ int main() {
     } catch (std::exception& e) {
         std::cout << e.what() << std::endl;
     }
-
+*/
     return 0;
 }

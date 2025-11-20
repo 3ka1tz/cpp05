@@ -9,6 +9,22 @@ Form::Form() : _name("Default"), _isSigned(false), _gradeToSign(150), _gradeToEx
 }
 
 Form::Form(const std::string& name, int gradeToSign, int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
+    if (_gradeToSign < 1) {
+        throw GradeToSignTooHighException();
+    }
+
+    if (_gradeToSign > 150) {
+        throw GradeToSignTooLowException();
+    }
+
+    if (_gradeToExecute < 1) {
+        throw GradeToExecuteTooHighException();
+    }
+
+    if (_gradeToExecute > 150) {
+        throw GradeToExecuteTooHighException();
+    }
+
     std::cout << "Form " << _name << " constructed." << std::endl;
 }
 
@@ -44,22 +60,31 @@ int Form::getGradeToExecute() const {
     return _gradeToExecute;
 }
 
-void Form::beSigned(const Bureaucrat& b) {
-    if (b.getGrade() > _gradeToSign) {
-        throw GradeTooLowException();
+void Form::beSigned(const Bureaucrat& bureaucrat) {
+    if (bureaucrat.getGrade() > _gradeToSign) {
+        throw GradeToSignTooLowException();
     }
+
     _isSigned = true;
 }
 
-const char* Form::GradeTooHighException::what() const throw() {
-    return "Grade too highaaaaaaaaaaaaaaa!";
+const char* Form::GradeToSignTooHighException::what() const throw() {
+    return "\033[31mForm construction failed, gradeToSign too high (it must be between 1 and 150).\033[0m";
 }
 
-const char* Form::GradeTooLowException::what() const throw() {
-    return "his/her grade was too low.";
+const char* Form::GradeToSignTooLowException::what() const throw() {
+    return "\033[31mForm construction failed, gradeToSign too low (it must be between 1 and 150).\033[0m";
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& f) {
-    os << "Form " << f.getName() << " signed = " << std::boolalpha << f.getIsSigned() << ", sign grade = " << f.getGradeToSign() << ", exec grade = " << f.getGradeToExecute() << ".";
+const char* Form::GradeToExecuteTooHighException::what() const throw() {
+    return "\033[31mForm construction failed, gradeToExecute too high (it must be between 1 and 150).\033[0m";
+}
+
+const char* Form::GradeToExecuteTooLowException::what() const throw() {
+    return "\033[31mForm construction failed, gradeToExecute too low (it must be between 1 and 150).\033[0m";
+}
+
+std::ostream& operator<<(std::ostream& os, const Form& form) {
+    os << "Form " << f.getName() << ": isSigned = " << std::boolalpha << f.getIsSigned() << ", gradeToSign = " << f.getGradeToSign() << ", gradeToExecute = " << f.getGradeToExecute() << ".";
     return os;
 }
