@@ -23,28 +23,24 @@ const std::string& Bureaucrat::getName() const { return name; }
 int Bureaucrat::getGrade() const { return grade; }
 
 void Bureaucrat::incrementGrade() {
-    if (grade <= 1) {
-        throw GradeTooHighException();
-    }
+    if (grade <= 1) throw GradeTooHighException();
     grade--;
 }
 
 void Bureaucrat::decrementGrade() {
-    if (grade >= 150) {
-        throw GradeTooLowException();
-    }
+    if (grade >= 150) throw GradeTooLowException();
     grade++;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-    return "\033[31mGrade too high!\033[0m";
+    return "\033[31mGrade too high!\033[0m\n";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-    return "\033[31mGrade too low!\033[0m";
+    return "\033[31mGrade too low!\033[0m\n";
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
-    os << b.getName() << ", bureaucrat grade " << b.getGrade();
+    os << b.getName() << ", bureaucrat grade " << b.getGrade() << "\n";
     return os;
 }
