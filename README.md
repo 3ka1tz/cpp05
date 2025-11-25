@@ -2,9 +2,9 @@
 Repetition and Exceptions
 
 ## [Exercise 00: Mommy, when I grow up, I want to be a bureaucrat!](https://github.com/3ka1tz/cpp05/tree/main/project/ex00)
-**Turn-in directory**: ex00/  
-**Files to turn in**: Makefile, main.cpp, Bureaucrat.{h, hpp}, Bureaucrat.cpp  
-**Forbidden functions**: None
+**Directory**: ex00/  
+**Files to Submit**: Makefile, main.cpp, Bureaucrat.{h, hpp}, Bureaucrat.cpp  
+**Forbidden**: None
 
 Please note that exception classes do not have to be designed in Orthodox Canonical Form. However, every other class must follow it.
 
@@ -30,22 +30,22 @@ try
 {
 /* do some stuff with bureaucrats */
 }
-catch (std::exception & e)
+catch (std::exception& e)
 {
 /* handle exception */
 }
 ```
 
-You must implement an overload of the insertion (`«`) operator to print output in the following format (without the angle brackets):
+You must implement an overload of the insertion («) operator to print output in the following format (without the angle brackets):
 
 `<name>, bureaucrat grade <grade>.`
 
 As usual, submit some tests to prove that everything works as expected.
 
 ## [Exercise 01: Form up, maggots!](https://github.com/3ka1tz/cpp05/tree/main/project/ex01)
-**Turn-in directory**: ex01/  
-**Files to turn in**: Files from the previous exercise + Form.{h, hpp}, Form.cpp  
-**Forbidden functions**: None
+**Directory**: ex01/  
+**Files to Submit**: Files from the previous exercise + Form.{h, hpp}, Form.cpp  
+**Forbidden**: None
 
 Now that you have bureaucrats, let’s give them something to do. What better activity could there be than filling out a stack of forms?
 
@@ -60,9 +60,10 @@ All these attributes are **private**, not protected.
 The grades of the **Form** follow the same rules as those of the Bureaucrat. Thus, the following exceptions will be thrown if a form’s grade is out of bounds:  
 `Form::GradeTooHighException` and `Form::GradeTooLowException`.
 
-As before, write getters for all attributes and overload the insertion (`«`) operator to print all the form’s information.
+As before, write getters for all attributes and overload the insertion («) operator to print all the form’s information.
 
-Also, add a `beSigned()` member function to the Form that takes a Bureaucrat as a parameter. It changes the form’s status to signed if the bureaucrat’s grade is high enough (greater than or equal to the required one). Remember, grade 1 is higher than grade 2. If the grade is too low, throw a `Form::GradeTooLowException`.
+Also, add a `beSigned()` member function to the Form that takes a Bureaucrat as a parameter. It changes the form’s status to signed if the bureaucrat’s grade is high enough (greater than or equal to the required one). Remember, grade 1 is higher than grade 2.  
+If the grade is too low, throw a `Form::GradeTooLowException`.
 
 Then, modify the `signForm()` member function in the Bureaucrat class. This function must call `Form::beSigned()` to attempt to sign the form. If the form is signed successfully, it will print something like:  
 `<bureaucrat> signed <form>.`
