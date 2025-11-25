@@ -1,13 +1,15 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include <exception>
-#include <ostream>
 #include <string>
 
 class Form;
 
 class Bureaucrat {
+private:
+    const std::string name;
+    int grade;
+
 public:
     Bureaucrat();
     Bureaucrat(const std::string& name, int grade);
@@ -32,10 +34,6 @@ public:
     };
 
     void signForm(Form& form);
-
-private:
-    const std::string _name;
-    int _grade;
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);

@@ -33,8 +33,8 @@ public:
 protected:
     const std::string _name;
     bool _isSigned;
-    const int _gradeToSign;
-    const int _gradeToExecute;
+    int _gradeToSign;
+    int _gradeToExecute;
 
 };
 
