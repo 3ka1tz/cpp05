@@ -1,6 +1,8 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+#include <exception>
+#include <ostream>
 #include <string>
 
 class Form;
@@ -33,7 +35,7 @@ public:
         const char* what() const throw();
     };
 
-    void signForm(Form& form);
+    void signForm(Form& form) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
