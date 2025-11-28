@@ -1,12 +1,13 @@
 #include "Bureaucrat.hpp"
 
-#include <iostream>
-
 Bureaucrat::Bureaucrat() : name("Default"), grade(150) {}
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name), grade(grade) {
-    if (grade < 1) throw GradeTooHighException();
-    if (grade > 150) throw GradeTooLowException();
+    if (grade < 1) {
+        throw GradeTooHighException();
+    } else if (grade > 150) {
+        throw GradeTooLowException();
+    }
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name), grade(other.grade) {}
